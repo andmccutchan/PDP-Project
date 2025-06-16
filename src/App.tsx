@@ -8,12 +8,12 @@ import {
   NavigationMenu,
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
-import SignInCard from "./components/SignInCard";
+import SignInCard from "./components/LoginCard";
 
 function App() {
   return (
     <>
-      <div className="flex justify-end">
+      {/* <div className="flex justify-end">
         <NavigationMenu className="w-full" viewport={false}>
           <NavigationMenuLink>
             <Link to="/">Home</Link>
@@ -28,7 +28,7 @@ function App() {
             <Link to="/upload">Upload</Link>
           </NavigationMenuLink>
         </NavigationMenu>
-      </div>
+      </div> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />
