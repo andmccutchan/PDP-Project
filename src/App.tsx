@@ -8,6 +8,7 @@ import {
   NavigationMenu,
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
+import SignInCard from "./components/SignInCard";
 
 function App() {
   return (

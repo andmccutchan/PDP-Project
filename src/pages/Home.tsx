@@ -1,7 +1,9 @@
+import SignInCard from "@/components/SignInCard";
+
 const Home = () => {
   return (
     <>
-      <div>Home</div>
+      <SignInCard />
     </>
   );
 };
