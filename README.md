@@ -1,2 +1,1 @@
-##UPGallery 
-###Under development
+UPGallery under development
