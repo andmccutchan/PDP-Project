@@ -2,12 +2,7 @@ import LoginCard from "@/components/LoginCard";
 import SignUpCard from "@/components/SignUpCard";
 
 const Home = () => {
-  return (
-    <div>
-      <LoginCard />
-      <SignUpCard />
-    </div>
-  );
+  return <div>Home</div>;
 };
 
 export default Home;

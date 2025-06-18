@@ -57,7 +57,7 @@ const LoginCard = () => {
         </CardAction>
       </CardHeader>
       <CardContent>
-        <form>
+        <form onSubmit={handleLogin}>
           <div className="flex flex-col gap-6">
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
@@ -80,7 +80,13 @@ const LoginCard = () => {
                   Forgot your password?
                 </a>
               </div>
-              <Input id="password" type="password" required />
+              <Input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
             </div>
           </div>
         </form>
@@ -89,9 +95,14 @@ const LoginCard = () => {
         <Button type="submit" className="w-full">
           Login
         </Button>
-        <Button variant="outline" className="w-full">
-          Login with Google
+        <Button
+          variant="outline"
+          className="w-full"
+          onClick={handleGithubLogin}
+        >
+          Login with Github
         </Button>
+        {msg && <p>{msg}</p>}
       </CardFooter>
     </Card>
   );
