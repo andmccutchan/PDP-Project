@@ -1,5 +1,17 @@
 import { supabase } from "@/supabase-client";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 const LoginCard = () => {
   const [email, setEmail] = useState("");
@@ -20,35 +32,68 @@ const LoginCard = () => {
     }
   };
 
+  const handleGithubLogin = async (e: any) => {
+    e.preventDefault();
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: "github",
+    });
+
+    if (error) {
+      setMsg(`${error.message}`);
+    } else {
+      setMsg(`Signing in with ${data.provider}`);
+    }
+  };
+
   return (
-    <div className="w-1/4 border-2 p-5 rounded-sm">
-      <h2 className="mb-2 text-center">Login</h2>
-      <form onSubmit={handleLogin} className="flex flex-col">
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="border-2 rounded-sm px-2 mb-2"
-        />
-        <input
-          type="password"
-          placeholder="Passowrd"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          className="border-2 rounded-sm px-2"
-        />
-        <button
-          type="submit"
-          className="bg-green-400 w-1/2 mx-auto rounded-md my-2"
-        >
-          Sign In
-        </button>
-        {msg && <p>{msg}</p>}
-      </form>
-    </div>
+    <Card className="w-full max-w-sm">
+      <CardHeader>
+        <CardTitle>Login to your account</CardTitle>
+        <CardDescription>
+          Enter your email below to login to your account
+        </CardDescription>
+        <CardAction>
+          <Button variant="link">Sign Up</Button>
+        </CardAction>
+      </CardHeader>
+      <CardContent>
+        <form>
+          <div className="flex flex-col gap-6">
+            <div className="grid gap-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="m@example.com"
+                required
+              />
+            </div>
+            <div className="grid gap-2">
+              <div className="flex items-center">
+                <Label htmlFor="password">Password</Label>
+                <a
+                  href="#"
+                  className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
+                >
+                  Forgot your password?
+                </a>
+              </div>
+              <Input id="password" type="password" required />
+            </div>
+          </div>
+        </form>
+      </CardContent>
+      <CardFooter className="flex-col gap-2">
+        <Button type="submit" className="w-full">
+          Login
+        </Button>
+        <Button variant="outline" className="w-full">
+          Login with Google
+        </Button>
+      </CardFooter>
+    </Card>
   );
 };
 

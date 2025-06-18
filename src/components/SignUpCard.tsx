@@ -23,6 +23,7 @@ const SignUpCard = () => {
   return (
     <div className="w-1/4 border-2 p-5 rounded-sm">
       <h2 className="mb-2 text-center">Sign Up</h2>
+
       <form onSubmit={handleLogin} className="flex flex-col">
         <input
           type="email"
