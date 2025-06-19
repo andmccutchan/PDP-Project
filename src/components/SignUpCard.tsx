@@ -6,7 +6,7 @@ const SignUpCard = () => {
   const [password, setPassword] = useState("");
   const [msg, setMsg] = useState("");
 
-  const handleLogin = async (e: any) => {
+  const handleSignUp = async (e: any) => {
     e.preventDefault();
     const { data, error } = await supabase.auth.signUp({
       email,
@@ -24,7 +24,7 @@ const SignUpCard = () => {
     <div className="w-1/4 border-2 p-5 rounded-sm">
       <h2 className="mb-2 text-center">Sign Up</h2>
 
-      <form onSubmit={handleLogin} className="flex flex-col">
+      <form onSubmit={handleSignUp} className="flex flex-col">
         <input
           type="email"
           placeholder="Email"

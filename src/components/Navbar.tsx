@@ -8,19 +8,19 @@ const Navbar = () => {
   return (
     <div className="flex justify-end">
       <NavigationMenu className="w-full" viewport={false}>
-        <NavigationMenuLink>
+        <NavigationMenuLink asChild>
           <Link to="/">Home</Link>
         </NavigationMenuLink>
-        <NavigationMenuLink>
+        <NavigationMenuLink asChild>
           <Link to="/dashboard">Dashboard</Link>
         </NavigationMenuLink>
-        <NavigationMenuLink>
+        <NavigationMenuLink asChild>
           <Link to="/gallery">Gallery</Link>
         </NavigationMenuLink>
-        <NavigationMenuLink>
+        <NavigationMenuLink asChild>
           <Link to="/upload">Upload</Link>
         </NavigationMenuLink>
-        <NavigationMenuLink>
+        <NavigationMenuLink asChild>
           <Link
             className="bg-slate-700 px-4 py-1 rounded text-stone-200"
             to="/login"
