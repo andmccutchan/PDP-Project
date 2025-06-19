@@ -30,7 +30,7 @@ const HomePostCard = ({ images, profilePhoto }: HomePostCardProps) => {
           <Carousel>
             <CarouselContent>
               {images.map((_, index) => (
-                <CarouselItem>
+                <CarouselItem key={index}>
                   <img src={images[index]} />
                 </CarouselItem>
               ))}

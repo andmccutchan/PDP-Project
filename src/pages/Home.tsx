@@ -1,7 +1,6 @@
 import HomePostCard from "@/components/HomePostCard";
 import LoginCard from "@/components/LoginCard";
 import SignUpCard from "@/components/SignUpCard";
-import { profile } from "console";
 
 const riceImages = [
   {
@@ -11,6 +10,16 @@ const riceImages = [
       "src/assets/rice1-3.png",
     ],
     profilePhoto: "src/assets/test-pfp.jpg",
+    userName: "user-1",
+  },
+  {
+    images: [
+      "src/assets/rice2-1.png",
+      "src/assets/rice2-2.png",
+      "src/assets/rice2-3.png",
+    ],
+    profilePhoto: "src/assets/test-pfp.jpg",
+    userName: "user-2",
   },
 ];
 
