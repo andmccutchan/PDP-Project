@@ -3,14 +3,51 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
+  CardTitle,
 } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-const HomePostCard = () => {
+type HomePostCardProps = {
+  images: Array<string>;
+  profilePhoto: string;
+};
+
+const HomePostCard = ({ images, profilePhoto }: HomePostCardProps) => {
   return (
-    <Card>
-      <CardHeader></CardHeader>
-      <CardContent></CardContent>
-      <CardFooter></CardFooter>
+    <Card className="p-10">
+      <CardHeader>
+        <CardTitle>Hyprland Rice</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div>
+          <Carousel>
+            <CarouselContent>
+              {images.map((_, index) => (
+                <CarouselItem>
+                  <img src={images[index]} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselNext />
+            <CarouselPrevious />
+          </Carousel>
+        </div>
+      </CardContent>
+      <CardFooter>
+        <div>
+          <Avatar>
+            <AvatarImage src={profilePhoto} />
+            <AvatarFallback />
+          </Avatar>
+        </div>
+      </CardFooter>
     </Card>
   );
 };
