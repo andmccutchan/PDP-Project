@@ -1,6 +1,7 @@
 import {
   Card,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -15,25 +16,38 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 type HomePostCardProps = {
+  title: string;
+  distribution: string;
+  description: string;
   images: Array<string>;
   profilePhoto: string;
+  userName: string;
 };
 
-const HomePostCard = ({ images, profilePhoto }: HomePostCardProps) => {
+const HomePostCard = ({
+  title,
+  description,
+  distribution,
+}: //   images,
+//   profilePhoto,
+//   userName,
+HomePostCardProps) => {
   return (
-    <Card className="p-10">
+    <Card className="p-8">
       <CardHeader>
-        <CardTitle>Hyprland Rice</CardTitle>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{distribution}</CardDescription>
       </CardHeader>
       <CardContent>
-        <div>
+        <div className="flex flex-col">
+          <p className="mb-2">{description}</p>
           <Carousel>
             <CarouselContent>
-              {images.map((_, index) => (
+              {/* {images.map((_, index) => (
                 <CarouselItem key={index}>
-                  <img src={images[index]} />
+                  <img className="rounded-sm" src={images[index]} />
                 </CarouselItem>
-              ))}
+              ))} */}
             </CarouselContent>
             <CarouselNext />
             <CarouselPrevious />
@@ -41,12 +55,13 @@ const HomePostCard = ({ images, profilePhoto }: HomePostCardProps) => {
         </div>
       </CardContent>
       <CardFooter>
-        <div>
+        {/* <div className="flex w-full items-center">
           <Avatar>
             <AvatarImage src={profilePhoto} />
             <AvatarFallback />
           </Avatar>
-        </div>
+          <p className="px-2">{userName}</p>
+        </div> */}
       </CardFooter>
     </Card>
   );
